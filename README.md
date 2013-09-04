@@ -37,6 +37,6 @@ This file may be patched with _patchatlas_ like this:
 
 	$ ./mkatlas img/* | ./patchatlas index.html
 
-1: http://en.wikipedia.org/wiki/Bash_(Unix_shell)
-2: http://en.wikipedia.org/wiki/Texture_atlas
-3: http://www.imagemagick.org/
+[1]: http://en.wikipedia.org/wiki/Bash_(Unix_shell)
+[2]: http://en.wikipedia.org/wiki/Texture_atlas
+[3]: http://www.imagemagick.org/
