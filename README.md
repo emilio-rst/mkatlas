@@ -37,6 +37,32 @@ This file may be patched with _patchatlas_ like this:
 
 	$ ./mkatlas img/* | ./patchatlas index.html
 
+Switches
+--------
+
+There are a few variables for fine tuning.
+Just put them before invocation, e.g.:
+
+	$ BORDER=0 ATLAS=atlas.jpg ./mkatlas img/*
+
+WIDTH
+Maximum width of atlas. Default is 2048.
+
+HEIGHT
+Maximum height of atlas. Default is 2048.
+
+BORDER
+Padding around sprites. If you intend to scale the atlas, it's wise to have
+a padding because sampling will make sprites "bleed" out of their frame.
+Default is 2.
+
+ATLAS
+File name (and image format) of atlas image.
+
+PREFER_SMALLER
+Prefer smaller region for lay out if set. Sometimes this gives a smaller
+atlas. Just try.
+
 [1]: http://en.wikipedia.org/wiki/Bash_(Unix_shell)
 [2]: http://en.wikipedia.org/wiki/Texture_atlas
 [3]: http://www.imagemagick.org/
