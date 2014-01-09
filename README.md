@@ -43,7 +43,7 @@ Switches
 There are a few variables for fine tuning.
 Just put them before invocation, e.g.:
 
-	$ BORDER=0 ATLAS=atlas.jpg ./mkatlas img/*
+	$ ATLAS=atlas.jpg ./mkatlas img/*
 
 #### WIDTH
 Maximum width of atlas. Default is 2048.
@@ -52,9 +52,7 @@ Maximum width of atlas. Default is 2048.
 Maximum height of atlas. Default is 2048.
 
 #### BORDER
-Padding around sprites. If you intend to scale the atlas, it's wise to have
-a padding because sampling will make sprites "bleed" out of their frame.
-Default is 2.
+Padding around sprites. Default is 0.
 
 #### ATLAS
 File name (and image format) of atlas image.
