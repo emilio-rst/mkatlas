@@ -57,9 +57,9 @@ Padding around sprites. Default is 0.
 #### ATLAS
 File name (and image format) of atlas image.
 
-#### PREFER_SMALLER
-Prefer smaller region for lay out if set. Sometimes this gives a smaller
-atlas. Just try.
+#### PREFER_LARGER_CELLS
+Prefer larger cells for lay out if set. Depending on your sprite set,
+that may make a smaller atlas. Just try.
 
 [1]: http://en.wikipedia.org/wiki/Bash_(Unix_shell)
 [2]: http://en.wikipedia.org/wiki/Texture_atlas
