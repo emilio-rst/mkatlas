@@ -45,21 +45,14 @@ Just put them before invocation, e.g.:
 
 	$ ATLAS=atlas.jpg ./mkatlas img/*
 
-#### WIDTH
-Maximum width of atlas. Default is 2048.
-
-#### HEIGHT
-Maximum height of atlas. Default is 2048.
+#### MAX_SIZE
+Maximum width/height of atlas. Default is 2048.
 
 #### BORDER
 Padding around sprites. Default is 0.
 
 #### ATLAS
 File name (and image format) of atlas image.
-
-#### PREFER_LARGER_CELLS
-Prefer larger cells for lay out if set. Depending on your sprite set,
-that may make a smaller atlas. Just try.
 
 [1]: http://en.wikipedia.org/wiki/Bash_(Unix_shell)
 [2]: http://en.wikipedia.org/wiki/Texture_atlas
