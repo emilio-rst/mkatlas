@@ -16,7 +16,7 @@ atlas_cache_compose()
 # Print JSON and build arguments for convert
 atlas_cache_summarize()
 {
-	echo "var atlas={"
+	echo "{\"frames\" : {"
 
 	find $CACHE -type f -name image | while read
 	do
@@ -26,10 +26,14 @@ atlas_cache_summarize()
 		echo "$FILE -geometry +$X+$Y -composite" >> $CACHE/args
 
 		local NAME=${FILE##*/}
-		echo "${NAME%.*}:{x:$X,y:$Y,w:$W,h:$H},"
+		echo "	\"${NAME%.*}\": {
+		\"frame\" : {\"x\" : $X, \"y\" : $Y, \"w\" : $W, \"h\" : $H},
+		\"spriteSourceSize\" : {\"x\" : 0, \"y\" : 0, \"w\" : $W, \"h\" : $H},
+		\"sourceSize\" : {\"w\" : $W , \"h\" : $H}
+	},"
 	done
 
-	echo "};"
+	echo "}};"
 }
 
 # Insert image, packing algorithm from
