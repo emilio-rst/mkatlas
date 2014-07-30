@@ -14,18 +14,14 @@ Just run
 	$ ./mkatlas img/*
 
 which will create _atlas.png_ and _atlas.json_ with the corresponding sprite regions
-in JSON format for Phaser:
+in JSON TexturePacker:
 
 	{"frames": {
 		"first": {
-			"frame" : {"x" : 466, "y" : 0, "w" : 36, "h" : 64},
-			"spriteSourceSize" : {"x" : 0, "y" : 0, "w" : 36, "h" : 64},
-			"sourceSize" : {"w" : 36 , "h" : 64}
+			"frame" : {"x" : 466, "y" : 0, "w" : 36, "h" : 64}
 		},
 		"second": {
-			"frame" : {"x" : 430, "y" : 0, "w" : 36, "h" : 64},
-			"spriteSourceSize" : {"x" : 0, "y" : 0, "w" : 36, "h" : 64},
-			"sourceSize" : {"w" : 36 , "h" : 64}
+			"frame" : {"x" : 430, "y" : 0, "w" : 36, "h" : 64}
 		},
 		...
 	}}
