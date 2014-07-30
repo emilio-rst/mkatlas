@@ -13,10 +13,12 @@ atlas_cache_compose()
 		"${ATLAS:-atlas.png}"
 }
 
-# Print JSON and build arguments for convert
+# Generate JSON and build arguments for convert
 atlas_cache_summarize()
 {
-	echo "{\"frames\" : {"
+	local JSON_FILE="${JSON:-atlas.json}"
+	
+	echo "{\"frames\" : {" > $JSON_FILE
 
 	find $CACHE -type f -name image | while read
 	do
@@ -30,10 +32,12 @@ atlas_cache_summarize()
 		\"frame\" : {\"x\" : $X, \"y\" : $Y, \"w\" : $W, \"h\" : $H},
 		\"spriteSourceSize\" : {\"x\" : 0, \"y\" : 0, \"w\" : $W, \"h\" : $H},
 		\"sourceSize\" : {\"w\" : $W , \"h\" : $H}
-	},"
+	}," >> $JSON_FILE
 	done
-
-	echo "}};"
+	
+	sed -i '$s/,$//' $JSON_FILE
+	
+	echo "}}" >> $JSON_FILE
 }
 
 # Insert image, packing algorithm from
