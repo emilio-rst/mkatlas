@@ -29,7 +29,11 @@ atlas_cache_summarize()
 
 		local NAME=${FILE##*/}
 		echo "	\"${NAME%.*}\": {
-		\"frame\" : {\"x\" : $X, \"y\" : $Y, \"w\" : $W, \"h\" : $H}
+		\"frame\" : {\"x\" : $X, \"y\" : $Y, \"w\" : $W, \"h\" : $H},
+		\"rotated\" : false,
+		\"trimmed\" : false,
+		\"spriteSourceSize\" : {\"x\" : 0, \"y\" : 0, \"w\" :$W,\"h\" : $H},
+		\"sourceSize\": {\"w\" : $W, \"h\" : $H}
 	}," >> $JSON_FILE
 	done
 	
