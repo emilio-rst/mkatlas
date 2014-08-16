@@ -188,7 +188,7 @@ atlas_create_from_list()
 
 # Create texture atlas from given image files
 #
-# @param ... - image files
+# @param ... - image files or directories
 atlas_create()
 {
 	local INKSCAPE=${INKSCAPE:-`which inkscape`}
@@ -197,29 +197,33 @@ atlas_create()
 
 	# prepare source files
 	local SRC
-	for SRC
+	for SRC in $(find "$@")
 	do
-		local COPY="$TMPDIR/${SRC##*/}"
+		if [ ! -d "$SRC" ]
+		then
+			local COPY="$TMPDIR/${SRC##*/}"
 
-		case ${SRC##*.} in
-			svg)
-				COPY="${COPY%.*}.png"
+			case ${SRC##*.} in
+				svg)
+					COPY="${COPY%.*}.png"
 
-				# use inkscape if available
-				[ "$INKSCAPE" ] &&
-					$INKSCAPE "$SRC" \
-						-z -e "$COPY" &>/dev/null &&
-					SRC=${COPY}
-				;;
-		esac
-			
-		convert \
-			-background none \
-			"$SRC" \
-			-strip \
-			-bordercolor none -border 3x3 \
-			-bordercolor none -border ${BORDER} \
-			"$COPY"
+					# use inkscape if available
+					[ "$INKSCAPE" ] &&
+						$INKSCAPE "$SRC" \
+							-z -e "$COPY" &>/dev/null &&
+						SRC=${COPY}
+					;;
+			esac
+				
+			convert \
+				-background none \
+				"$SRC" \
+				-strip \
+				-bordercolor none -border 3x3 \
+				-bordercolor none -border ${BORDER} \
+				"$COPY"		
+		fi
+	
 	done
 
 	identify -format '%w %h %d/%f\n' "$TMPDIR/*" | atlas_create_from_list
