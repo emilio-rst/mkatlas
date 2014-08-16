@@ -218,9 +218,6 @@ atlas_create()
 			convert \
 				-background none \
 				"$SRC" \
-				-strip \
-				-bordercolor none -border 3x3 \
-				-bordercolor none -border ${BORDER} \
 				"$COPY"		
 		fi
 	
