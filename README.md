@@ -37,9 +37,6 @@ Just put them before invocation, e.g.:
 #### MAX_SIZE
 Maximum width/height of atlas. Default is 2048.
 
-#### BORDER
-Padding around sprites. Default is 0.
-
 #### ATLAS
 File name (and image format) of atlas image.
 

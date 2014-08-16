@@ -7,9 +7,6 @@ atlas_cache_compose()
 		-size "`< $CACHE/width`x`< $CACHE/height`" \
 		xc:transparent \
 		`< $CACHE/args` \
-		-strip \
-		-trim \
-		-bordercolor none -border $BORDER \
 		"${ATLAS:-atlas.png}"
 }
 
@@ -226,8 +223,6 @@ atlas_create()
 	identify -format '%w %h %d/%f\n' "$TMPDIR/*" | atlas_create_from_list
 	rm -rf $TMPDIR
 }
-
-readonly BORDER=${BORDER:-0}
 
 if [ "$BASH_SOURCE" == "$0" ]
 then
