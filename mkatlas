@@ -212,13 +212,12 @@ atlas_create()
 					SRC=${COPY}
 				;;
 		esac
-
+			
 		convert \
 			-background none \
 			"$SRC" \
 			-strip \
 			-bordercolor none -border 3x3 \
-			-trim \
 			-bordercolor none -border ${BORDER} \
 			"$COPY"
 	done
