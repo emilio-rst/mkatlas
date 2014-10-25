@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# Convert svg to png
+#
+# @param ... - image files or directories
+svg_to_png()
+{
+	local INKSCAPE=${INKSCAPE:-`which inkscape`}
+
+	local DESTINATION_DIR="${DESTINATION:-.}"
+
+	# prepare source files
+	local SRC
+	for SRC in $(find "$@")
+	do
+		if [ ! -d "$SRC" ]
+		then
+			local COPY="$DESTINATION_DIR/${SRC##*/}"
+
+			case ${SRC##*.} in
+				svg)
+					COPY="${COPY%.*}.png"
+
+					[ "$INKSCAPE" ] &&
+						$INKSCAPE "$SRC" \
+							-z -e "$COPY" &>/dev/null &&
+						SRC=${COPY}
+					;;
+			esac
+		fi
+	
+	done
+}
+
+if [ "$BASH_SOURCE" == "$0" ]
+then
+	svg_to_png "$@"
+fi
