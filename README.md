@@ -43,6 +43,9 @@ File name (and image format) of atlas image.
 #### JSON
 File name of atlas JSON.
 
+#### OUT
+Base file name of Output Atlas Image File and Json File.
+
 [1]: http://en.wikipedia.org/wiki/Bash_(Unix_shell)
 [2]: http://en.wikipedia.org/wiki/Texture_atlas
 [3]: http://www.imagemagick.org/

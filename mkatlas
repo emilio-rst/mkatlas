@@ -7,13 +7,13 @@ atlas_cache_compose()
 		-size "`< $CACHE/width`x`< $CACHE/height`" \
 		xc:transparent \
 		`< $CACHE/args` \
-		"${ATLAS:-atlas.png}"
+		"${ATLAS:-${OUT}.png}"
 }
 
 # Generate JSON and build arguments for convert
 atlas_cache_summarize()
 {
-	local JSON_FILE="${JSON:-atlas.json}"
+	local JSON_FILE="${JSON:-${OUT}.json}"
 	
 	echo "{\"frames\" : {" > $JSON_FILE
 
@@ -227,5 +227,7 @@ atlas_create()
 
 if [ "$BASH_SOURCE" == "$0" ]
 then
+
+	[[ -z "$OUT" ]] && OUT="atlas"
 	atlas_create "$@"
 fi
